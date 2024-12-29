@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="w-full bg-white border-b border-gray-200">
+        <div class="w-full bg-white">
+            <nav x-data="{ isOpen: false }" class="w-5/6 m-auto bg-white dark:bg-gray-800">
+                <div class="container px-3 py-0  mx-auto">
+                    <div class="lg:flex lg:items-center">
+                        <div class="flex items-center justify-between">
+                            <a href="#">
+                                <img class="w-auto h-6 sm:h-7" src="https://merakiui.com/images/full-logo.svg" alt="">
+                            </a>
+
+                            <!-- Mobile menu button -->
+                            <div class="flex lg:hidden">
+                                <button x-cloak @click="isOpen = !isOpen" type="button"
+                                    class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+                                    aria-label="toggle menu">
+                                    <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+                                    </svg>
+
+                                    <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
+                            class="absolute inset-x-0 z-20 flex-1 w-full px-6 py-0 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lg:justify-between">
+                            <div class="flex text-gray-600 capitalize dark:text-gray-300 lg:flex lg:px-16 lg:-mx-4 lg:flex-row lg:items-center">
+                                <div class="border-b-2 border-blue-500 py-3">
+                                    <a href="#"
+                                        class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200 text-blue-500">社区</a>
+                                </div>
+                                <div class="border-b-2 border-transparent py-3">
+                                    <a href="#"
+                                        class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Wiki</a>
+                                </div>
+                                <div class="border-b-2 border-transparent py-3">
+                                    <a href="#"
+                                        class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">酷站</a>
+                                </div>
+                                <div class="border-b-2 border-transparent py-3">
+                                    <a href="#"
+                                        class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">文章</a>
+                                </div>
+                                <div class="relative mt-4 lg:mt-0 lg:mx-4">
+                                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                                        <svg class="w-4 h-4 text-gray-600 dark:text-gray-300" viewBox="0 0 24 24"
+                                            fill="none">
+                                            <path
+                                                d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                        </svg>
+                                    </span>
+
+                                    <input type="text"
+                                        class="w-full py-1 pl-10 pr-4 text-gray-700 placeholder-gray-600 bg-white border-b border-gray-600 dark:placeholder-gray-300 dark:focus:border-gray-300 lg:w-56 lg:border-transparent dark:bg-gray-800 dark:text-gray-300 focus:outline-none focus:border-gray-600"
+                                        placeholder="Search">
+                                </div>
+                            </div>
+
+                            <div class="flex justify-center mt-6 lg:flex lg:mt-0 lg:-mx-2">
+                                <button
+                                    class="hidden mx-4 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
+                                    aria-label="show notifications">
+                                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M15 17H20L18.5951 15.5951C18.2141 15.2141 18 14.6973 18 14.1585V11C18 8.38757 16.3304 6.16509 14 5.34142V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V5.34142C7.66962 6.16509 6 8.38757 6 11V14.1585C6 14.6973 5.78595 15.2141 5.40493 15.5951L4 17H9M15 17V18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18V17M15 17H9"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+
+                                <button type="button" class="flex items-center focus:outline-none"
+                                    aria-label="toggle profile dropdown">
+                                    <div class="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
+                                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
+                                            class="object-cover w-full h-full" alt="avatar">
+                                    </div>
+
+                                    <h3 class="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">Khatab wedaa</h3>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="w-full bg-white">
+        <nav class="w-5/6 m-auto bg-white dark:bg-gray-800">
+            <div class="container px-3 py-0 ">
+                <div>
+                    <div x-cloak class="">
+                        <div
+                            class="flex text-gray-600 capitalize dark:text-gray-300 lg:-mx-3 lg:items-center text-sm">
+                            <div class="py-2">
+                                <a href="#"
+                                    class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200 text-blue-500">社区</a>
+                            </div>
+                            <div class="border-b-2 border-transparent py-2">
+                                <a href="#"
+                                    class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Wiki</a>
+                            </div>
+                            <div class="border-b-2 border-transparent py-2">
+                                <a href="#"
+                                    class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">酷站</a>
+                            </div>
+                            <div class="border-b-2 border-transparent py-2">
+                                <a href="#"
+                                    class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">文章</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="w-5/6 m-auto">
+        <div class=" flex flex-row justify-between mt-5">
+            <div class="relative flex w-[73%] flex-col rounded-lg bg-white shadow-sm">
+                <nav class="flex min-w-[240px] flex-col">
+                    <div role="button"
+                        class="text-slate-800 flex justify-between w-full items-center p-4 pl-6 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100 border-b border-gray-100">
+                        <div class="flex">
+                            <div class="mr-4 grid place-items-center">
+                                <img alt="candice" src="https://docs.material-tailwind.com/img/face-1.jpg"
+                                    class="relative inline-block h-12 w-12 !rounded-full  object-cover object-center" />
+                            </div>
+                            <div>
+                                <h6 class="text-slate-800 font-medium leading-7">
+                                    Tania Andrew
+                                </h6>
+                                <p class="text-slate-500 text-sm">
+                                    Software Engineer @ Material Tailwind
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <span
+                                class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">15</span>
+                        </div>
+                    </div>
+                    <div role="button"
+                        class="text-slate-800 flex justify-between w-full items-center p-4 pl-6 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100 border-b border-gray-100">
+                        <div class="flex">
+                            <div class="mr-4 grid place-items-center">
+                                <img alt="alexander" src="https://docs.material-tailwind.com/img/face-2.jpg"
+                                    class="relative inline-block h-12 w-12 !rounded-full  object-cover object-center" />
+                            </div>
+                            <div>
+                                <h6 class="text-slate-800 font-medium leading-7">
+                                    Alexander
+                                </h6>
+                                <p class="text-slate-500 text-sm">
+                                    Backend Developer @ Material Tailwind
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <span
+                                class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">15</span>
+                        </div>
+                    </div>
+                    <div role="button"
+                        class="text-slate-800 flex justify-between w-full items-center p-4 pl-6 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100 border-b border-gray-100">
+                        <div class="flex">
+                            <div class="mr-4 grid place-items-center">
+                                <img alt="emma" src="https://docs.material-tailwind.com/img/face-3.jpg"
+                                    class="relative inline-block h-12 w-12 !rounded-full  object-cover object-center" />
+                            </div>
+                            <div>
+                                <h6 class="text-slate-800 font-medium leading-7">
+                                    Emma Willever
+                                </h6>
+                                <p class="text-slate-500 text-sm">
+                                    UI/UX Designer @ Material Tailwind
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <span
+                                class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">15</span>
+                        </div>
+                    </div>
+                </nav>
+                <div class="py-6">
+                    <div class="flex">
+                        <a href="#"
+                            class="flex items-center justify-center px-4 py-2 mx-1 text-gray-500 capitalize bg-white rounded-md cursor-not-allowed rtl:-scale-x-100 dark:bg-gray-800 dark:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+
+                        <a href="#"
+                            class="hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:inline dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
+                            1
+                        </a>
+
+                        <a href="#"
+                            class="hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:inline dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
+                            2
+                        </a>
+
+                        <a href="#"
+                            class="hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:inline dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
+                            ...
+                        </a>
+
+                        <a href="#"
+                            class="hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:inline dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
+                            9
+                        </a>
+
+                        <a href="#"
+                            class="hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:inline dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
+                            10
+                        </a>
+
+                        <a href="#"
+                            class="flex items-center justify-center px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md rtl:-scale-x-100 dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/4 flex flex-col gap-4">
+                <div
+                    class="max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 flex justify-center items-center h-20">
+                    <button
+                        class="w-4/5 h-8 leading-4 rounded px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                        发帖
+                    </button>
+                </div>
+                <div class="max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
+                    <div class="px-4 py-2">
+                        <h1 class="text-xl text-gray-800 uppercase dark:text-white">小贴士</h1>
+                        <!-- <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos quidem sequi illum facere recusandae voluptatibus</p> -->
+                    </div>
+                    <div class="flex items-center justify-between px-4 py-2">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos quidem sequi illum facere
+                        recusandae voluptatibus
+                    </div>
+                </div>
+                <div class="max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
+                    <div class="px-4 py-2">
+                        <h1 class="text-xl text-gray-800 uppercase dark:text-white">活跃用户</h1>
+                    </div>
+                    <nav class="flex min-w-[240px] flex-col">
+                        <div role="button"
+                            class="text-slate-800 flex w-full items-center p-3 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100 border-b border-gray-100">
+                            <div class="mr-4 grid place-items-center">
+                                <img alt="candice" src="https://docs.material-tailwind.com/img/face-1.jpg"
+                                    class="relative inline-block h-9 w-9 !rounded-full  object-cover object-center" />
+                            </div>
+                            <div>
+                                <h6 class="font-normal leading-6 text-sm">
+                                    Tania Andrew
+                                </h6>
+                                <p class="text-slate-500 text-xs">
+                                    Software Engineer @ Material
+                                </p>
+                            </div>
+                        </div>
+                        <div role="button"
+                            class="text-slate-800 flex w-full items-center p-3 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100 border-b border-gray-100">
+                            <div class="mr-4 grid place-items-center">
+                                <img alt="alexander" src="https://docs.material-tailwind.com/img/face-2.jpg"
+                                    class="relative inline-block h-9 w-9 !rounded-full  object-cover object-center" />
+                            </div>
+                            <div>
+                                <h6 class="font-normal leading-6 text-sm">
+                                    Alexander
+                                </h6>
+                                <p class="text-slate-500 text-xs">
+                                    Backend Developer @ Material
+                                </p>
+                            </div>
+                        </div>
+                        <div role="button"
+                            class="text-slate-800 flex w-full items-center p-3 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100 border-b border-gray-100">
+                            <div class="mr-4 grid place-items-center">
+                                <img alt="emma" src="https://docs.material-tailwind.com/img/face-3.jpg"
+                                    class="relative inline-block h-9 w-9 !rounded-full  object-cover object-center" />
+                            </div>
+                            <div class="overflow-hidden">
+                                <h6 class="font-normal leading-6 text-sm">
+                                    Emma Willever
+                                </h6>
+                                <p class="text-slate-500 text-xs text-nowrap">
+                                    UI/UX Designer @ Material Tailwind
+                                </p>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<style type="text/css">
+    body {
+        background-color: #F5F5F5;
+    }
+</style>
+
+</html>
